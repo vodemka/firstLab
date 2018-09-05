@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Лабораторная 3</title>
+    <style>
+        h1, h2, h4, h5, h6 {
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
+
+            h4.outputForm {
+                color: white;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color: hotpink;
+            }
+
+        h3 {
+            color: #f23748;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background-image: url(background2.jpg);
+            background-size: 100%;
+        }
+        mark {
+            background: lightgreen;
+        }
+        .myButton {
+            text-decoration: none;
+            outline: none;
+            display: inline-block;
+            padding: 15px 30px;
+            overflow: hidden;
+            border: 2px solid;
+            border-bottom-width: 4px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: lightcoral;
+            background: rgba(255,255,255,1);
+            transition: color .3s, background .5s;
+        }
+
+            .myButton:hover {
+                color: pink;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Я, <mark> Докурно Вадим Викторович</mark>, изучаю HTML5!</h1>
+    </header>
+    <nav>
+        <figure>
+            <img src="1.jpeg" width="600" height="400"/>
+            <figcaption style="color:purple; font-size:x-large;">Моя сова</figcaption>
+        </figure>
+        <form name=myForm>
+            <fieldset style="background-color:navajowhite">
+                <legend style="background-color:lightgreen">Моя форма на HTML5!</legend>
+                <br />
+                <input type="text" name="name" value="Докурно Вадим Викторович" /><br /><br />
+                <input type="email" name="email" value="vodemka@mail.ru" /><br /><br />
+                <input type="tel" name="tel" pattern="+375" value="+375255397288" required /><br /><br />
+                <input type="number" min="1" max="4" name="course" value="1" />Курс<br /><br />
+                <input type="text" name="group" value="6" placeholder="Группа" autofocus/><br /><br />
+                <input type="color" value="#ffffff" /> <br /><br />
+                <input type="date"/> <br /><br />
+                <input type="url" value="http://vodemka.space" /> <span style="color:lightcoral; font-size:large; font-family:Verdana, Geneva, Tahoma, sans-serif;">Мой сайт</span> <br /><br />
+                <input type="submit"  onclick="output()" />
+            </fieldset>
+        </form>
+    </nav>
+    <br />
+    <footer>
+        <script>
+            function output() {
+                document.getElementById("out1").innerHTML += document.forms["myForm"].name.value;
+                document.getElementById("out2").innerHTML += document.forms["myForm"].tel.value;
+                document.getElementById("out3").innerHTML += document.forms["myForm"].email.value;
+                document.getElementById("out4").innerHTML += document.forms["myForm"].course.value;
+                document.getElementById("out5").innerHTML += document.forms["myForm"].group.value;
+            }
+            function clears() {
+                document.getElementById("out1").innerHTML = 'ФИО: ';
+                document.getElementById("out2").innerHTML = 'Телефон: ';
+                document.getElementById("out3").innerHTML = 'Email: ';
+                document.getElementById("out4").innerHTML = 'Курс: ';
+                document.getElementById("out5").innerHTML = 'Группа: ';
+            }
+        </script>
+        <input type="button" class="myButton" value="Вывод информации" onclick="output()" />
+        <input type="button" class="myButton" value="Очистить информацию" onclick="clears()" />
+        <h4 class="outputForm" id="out1">ФИО: </h4>
+        <h4 class="outputForm" id="out2">Телефон: </h4>
+        <h4 class="outputForm" id="out3">Email: </h4>
+        <h4 class="outputForm" id="out4">Курс: </h4>
+        <h4 class="outputForm" id="out5">Группа: </h4>
+        <h4 style="text-align:center;background-color:navajowhite;color:deepskyblue;">© 2018 КЯР by Водемка</h4>
+    </footer>
+</body>
+</html>
